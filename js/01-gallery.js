@@ -37,9 +37,12 @@ refs.galleryContainer.addEventListener("click", (event) => {
 
   instance.show();
 
-  refs.galleryContainer.addEventListener("keydown", (event) => {
+  refs.galleryContainer.addEventListener("keydown", onEscapeClick);
+
+  function onEscapeClick(event) {
     if (event.key === "Escape") {
       instance.close();
     }
-  });
+    refs.galleryContainer.removeEventListener("keydown", onEscapeClick);
+  }
 });
